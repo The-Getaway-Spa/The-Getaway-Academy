@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>eLearning Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="flex-container">
+    <aside class="sidebar">
+      <ul>
+        <li onclick="showLesson('lesson1')">Lesson 1: Introduction</li>
+        <li onclick="showLesson('lesson2'); unlockSidebarSection('lesson2quiz')">Lesson 2: HTML Basics</li>
+        <li id = "lesson2quiz" class="locked" onclick="showLesson(this.id)">Lesson 2 Quiz</li>
+        <li id = "lesson3" class="locked" onclick="showLesson(this.id)">Lesson 4: JavaScript Basics</li>
+      </ul>
+    </aside>
+    <main class="content">
+        <div id ="intro" class="lesson-content">
+            <h1>Welcome to The Getaway Academy!</h1>
+            <p>Select a lesson from the sidebar to get started.</p>
+        </div>
+
+        <div id="lesson1" class="lesson-content" style="display:none;">
+            <h1>Welcome to Lesson 1: Introduction!</h1>
+            <p>In this lesson, you will learn the basics of painting nails.</p>
+
+            <video width="640" height="480" controls>
+	        <source src="videos/placeholder.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div id="lesson2" class="lesson-content" style="display:none;">
+            <h1>This is Lesson 2: HTML Basics.</h1>
+
+        </div>
+
+        <div id="lesson2quiz_content" class="quiz-container" style="display:none;">
+            <h1>Lesson 2 Quiz!</h1>
+                <div id="introPage" style="text-align: center; padding: 30px;">
+                  <h2>Welcome to the Quiz!</h2>
+                  <p>Test your knowledge with this quiz.</p>
+                  <button id="startQuizBtn">Start Quiz</button>
+                </div>
+
+                <div class="quiz" style="display:none;">
+                    <p>What is nail polish used for?</p>
+                    <button onclick="checkAnswer(this,true)">Painting nails</button>
+                    <button onclick="checkAnswer(this,false)">Facial treatment</button>
+                    <button onclick="checkAnswer(this,false)">Skin care</button>
+                </div>
+
+                <div class="quiz" style="display:none;">
+                    <p>Where does shampoo go?</p>
+                    <button onclick="checkAnswer(this,false)">on your back</button>
+                    <button onclick="checkAnswer(this,false)">between your fingers</button>
+                    <button onclick="checkAnswer(this,true)">in your hair</button>
+                </div>
+
+                <div id="quizResults" style="padding: 20px; font-size: 1.2em;"></div>
+        </div>
+
+        <div id="lesson3_content" class="lesson-content" style="display:none;">You made it to Lesson 3: CSS Styling!</div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
